@@ -39,8 +39,8 @@ async function edit(req, res) {
 
 const add = (req, res) => {
   const phone = req.body;
-
-  // TODO validations (length, format...)
+  const { renamedFile } = req;
+  phone.img = renamedFile;
 
   models.phone
     .insert(phone)

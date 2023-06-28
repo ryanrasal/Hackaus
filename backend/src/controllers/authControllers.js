@@ -2,8 +2,6 @@ const models = require("../models");
 
 const getUserByEmailWithPasswordAndPassToNext = (req, res, next) => {
   const { email } = req.body;
-  console.warn("-- enter in authCon");
-  console.warn("Mail ", email);
   models.user
     .findByEmailWithPassword(email)
     .then(([users]) => {

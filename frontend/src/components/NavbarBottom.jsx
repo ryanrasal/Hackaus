@@ -7,7 +7,7 @@ export default function NavbarBottom() {
 
   return (
     <div className="fixed bottom-0 flex flex-col justify-between w-full items-end">
-      <div className="w-full border border-white h-20 bg-[#94b0c8] flex flex-row justify-around items-center">
+      <div className="w-full border border-white h-20 bg-[#5e7c96] flex flex-row justify-around items-center">
         <button
           type="button"
           className={
