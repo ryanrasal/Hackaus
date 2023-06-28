@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import list from "../assets/list.png";
+import home from "../assets/home.png";
 
 export default function NavbarBottom() {
   const [position, setPosition] = useState(1);
@@ -18,11 +19,7 @@ export default function NavbarBottom() {
           }
           onClick={() => setPosition(1)}
         >
-          <img
-            alt=""
-            className="w-full h-7"
-            src="https://file.rendit.io/n/yJSOT2LJPggHTF2nm9IU.svg"
-          />
+          <img alt="" className="w-full h-7" src={home} />
         </button>
         {position === 1 && (
           <button

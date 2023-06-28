@@ -1,13 +1,15 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
 import NavbarTop from "./components/NavbarTop";
 import NavbarBottom from "./components/NavbarBottom";
 
 function App() {
+  const token = false;
   return (
-    <div className="App">
-      <NavbarTop />
-      <NavbarBottom />
-      <p className="text-red-500">coucou</p>
+    <div>
+      {token && <NavbarTop />}
+      <Outlet />
+      {token && <NavbarBottom />}
     </div>
   );
 }
