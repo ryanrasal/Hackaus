@@ -1,8 +1,14 @@
 const express = require("express");
 
+const multer = require("multer");
+
 const router = express.Router();
+
+const upload = multer({ dest: process.env.UPLOADS_FOLDER });
+
 const { hashPassword, verifyPassword } = require("./services/auth");
 
+const fileControllers = require("./controllers/fileControllers");
 const userControllers = require("./controllers/UserControllers");
 const authControllers = require("./controllers/authControllers");
 const phoneController = require("./controllers/PhoneControllers");
@@ -29,7 +35,12 @@ router.delete("/users/:id", userControllers.destroy);
 router.get("/phone", phoneController.browse);
 router.get("/phone/:id", phoneController.read);
 router.put("/phone/:id", phoneController.edit);
-router.post("/phone", phoneController.add);
+router.post(
+  "/phone",
+  upload.single("picture"),
+  fileControllers.fileRename,
+  phoneController.add
+);
 router.delete("/phone/:id", phoneController.destroy);
 
 /// / REF PHONE ROUTES ////
