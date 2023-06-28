@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.phone
+  models.phone_ref
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.phone
+  models.phone_ref
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -29,7 +29,7 @@ const read = (req, res) => {
 };
 
 async function edit(req, res) {
-  const { status, message } = await models.phone.update(
+  const { status, message } = await models.phone_ref.update(
     req.body,
     parseInt(req.params.id, 10)
   );
@@ -42,10 +42,10 @@ const add = (req, res) => {
 
   // TODO validations (length, format...)
 
-  models.phone
+  models.phone_ref
     .insert(phone)
     .then(([result]) => {
-      res.location(`/phone/${result.insertId}`).sendStatus(201);
+      res.location(`/phone-ref/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -54,7 +54,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.phone
+  models.phone_ref
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
