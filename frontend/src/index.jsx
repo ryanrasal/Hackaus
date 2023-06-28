@@ -7,7 +7,7 @@ const Routes = [
     element: <App />,
     children: [
       {
-        path: "login",
+        index: true,
         element: <LoginPage />,
       },
     ],
