@@ -2,12 +2,12 @@ const AbstractManager = require("./AbstractManager");
 
 class PhoneManager extends AbstractManager {
   constructor() {
-    super({ table: "phone" });
+    super({ table: "phone_ref" });
   }
 
   insert(phone) {
     return this.database.query(
-      `insert into ${this.table} (brand,model,ram,storage,state,img,category) values (?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (brand,model,ram,storage,state,img) values (?,?,?,?,?,?)`,
       [
         phone.brand,
         phone.model,
@@ -15,7 +15,6 @@ class PhoneManager extends AbstractManager {
         phone.storage,
         phone.state,
         phone.img,
-        phone.category,
       ]
     );
   }
