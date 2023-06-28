@@ -30,9 +30,13 @@ pool.getConnection().catch(() => {
 const models = {};
 
 const PhoneManager = require("./PhoneManager");
+const RefPhoneManager = require("./RefPhoneManager");
 
 models.phone = new PhoneManager();
 models.phone.setDatabase(pool);
+
+models.phone_ref = new RefPhoneManager();
+models.phone_ref.setDatabase(pool);
 
 // bonus: use a proxy to personalize error message,
 // when asking for a non existing model
