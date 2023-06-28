@@ -19,12 +19,13 @@ USE `hackathon` ;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `hackathon`.`phone_ref` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  `brand` VARCHAR(45) NOT NULL,
-  `model` VARCHAR(45) NOT NULL,
+  `brand` VARCHAR(150) NOT NULL,
+  `model` VARCHAR(150) NOT NULL,
   `ram` INT NOT NULL,
   `storage` INT NOT NULL,
   `state` INT NOT NULL,
   `img` VARCHAR(255) NOT NULL,
+  `price` INT NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -38,6 +39,7 @@ CREATE TABLE IF NOT EXISTS `hackathon`.`user` (
   `lastname` VARCHAR(45) NULL,
   `email` VARCHAR(150) NOT NULL,
   `password` VARCHAR(255) NOT NULL,
+  `isAdmin` BOOLEAN NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
