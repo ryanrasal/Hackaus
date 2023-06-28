@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import User from "./User";
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminFormUser from "./components-admin/AdminFormUser";
+import AddPhone from "./pages/AddPhone";
 
 const Routes = [
   {
@@ -31,6 +32,10 @@ const Routes = [
       {
         path: "create-user",
         element: <AdminFormUser />,
+      },
+      {
+        path: "addPhone",
+        element: <AddPhone />,
       },
     ],
   },
