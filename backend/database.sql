@@ -25,6 +25,8 @@ CREATE TABLE IF NOT EXISTS `hackathon`.`phone_ref` (
   `storage` INT NOT NULL,
   `state` INT NOT NULL,
   `img` VARCHAR(255) NOT NULL,
+  `price` INT NOT NULL,
+
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
