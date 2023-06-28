@@ -39,11 +39,11 @@ function LoginPage() {
           return response.json();
         })
         .then((result) => {
+          localStorage.setItem("user", JSON.stringify(result.user));
           setTimeout(() => {
             setIsLoading(false);
             navigate("/admin/home");
-          }, 2000);
-          toast.success(`Bienvenue ${result.user.firstname} !`);
+          }, 2500);
         })
         .catch((error) => {
           toast.error(`Erreur lors de la connexion: ${error.message}`);
