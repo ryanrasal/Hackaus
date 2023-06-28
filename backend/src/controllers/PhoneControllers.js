@@ -1,7 +1,7 @@
 const models = require("../models");
 
 const browse = (req, res) => {
-  models.item
+  models.phone
     .findAll()
     .then(([rows]) => {
       res.send(rows);
@@ -13,7 +13,7 @@ const browse = (req, res) => {
 };
 
 const read = (req, res) => {
-  models.item
+  models.phone
     .find(req.params.id)
     .then(([rows]) => {
       if (rows[0] == null) {
@@ -28,37 +28,24 @@ const read = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
-  const item = req.body;
+async function edit(req, res) {
+  const { status, message } = await models.phone.update(
+    req.body,
+    parseInt(req.params.id, 10)
+  );
 
-  // TODO validations (length, format...)
-
-  item.id = parseInt(req.params.id, 10);
-
-  models.item
-    .update(item)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
+  return res.status(status).json(message);
+}
 
 const add = (req, res) => {
-  const item = req.body;
+  const phone = req.body;
 
   // TODO validations (length, format...)
 
-  models.item
-    .insert(item)
+  models.phone
+    .insert(phone)
     .then(([result]) => {
-      res.location(`/items/${result.insertId}`).sendStatus(201);
+      res.location(`/phone/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
@@ -67,7 +54,7 @@ const add = (req, res) => {
 };
 
 const destroy = (req, res) => {
-  models.item
+  models.phone
     .delete(req.params.id)
     .then(([result]) => {
       if (result.affectedRows === 0) {
