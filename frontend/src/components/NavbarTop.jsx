@@ -1,11 +1,11 @@
 import React from "react";
-import arrowReturn from "../assets/arrowReturn.png";
-import profil from "../assets/profil.png";
-import logo from "../assets/logo.png";
+import arrowReturn from "../assets/navbar/arrowReturn.png";
+import profil from "../assets/navbar/profil.png";
+import logo from "../assets/navbar/logo.png";
 
 export default function NavbarTop() {
   return (
-    <div className="shadow-md bg-[#5e7c96] border border-white w-full">
+    <div className="shadow-md bg-[#384a5a] border border-white w-full">
       <div className="flex items-center justify-between px-7">
         <button type="button">
           <img src={arrowReturn} alt="" />

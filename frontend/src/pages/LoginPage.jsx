@@ -52,7 +52,7 @@ function LoginPage() {
   };
 
   return (
-    <div className="h-screen bg-[#5e7c96]">
+    <div className="h-screen bg-[#384a5a]">
       {isLoading ? (
         <Loading />
       ) : (
@@ -60,22 +60,24 @@ function LoginPage() {
           onSubmit={handleSubmit}
           className=" flex flex-col px-4 mx-4 pt-[50%]"
         >
-          <h1 className="text-white text-center uppercase pb-2 text-3xl tracking-wider font-semibold">
+          <h1 className="text-white text-center mb-4 uppercase pb-2 text-3xl tracking-wider font-semibold">
             Emmaüs Connect
           </h1>
-          <p className="tracking-wider text-center">
+          <p className="tracking-wider text-xl text-white text-center">
             Une nouvelle vie pour votre SmartPhone
           </p>
           <div className="my-10 w-full">
-            <p className="font-bold pb-2 tracking-wider">Email</p>
+            <p className="font-bold text-white pb-2 tracking-wider">Email</p>
             <input
               name="email"
               onChange={(e) => setEmail(e.target.value)}
               value={email}
-              className="py-2 pl-2 mb-3 w-full rounded-md"
+              className="py-2  pl-2 mb-3 w-full rounded-md"
               type="text"
             />
-            <p className="font-bold pb-2 tracking-wider">Mot de passe</p>
+            <p className="font-bold pb-2 text-white tracking-wider">
+              Mot de passe
+            </p>
             <input
               name="password"
               onChange={(e) => setPassword(e.target.value)}
@@ -84,7 +86,7 @@ function LoginPage() {
             />
           </div>
           <button
-            className="border py-2 text-white border-white shadow-lg rounded-md"
+            className="border py-2 text-xl text-white tracking-wider border-white shadow-lg rounded-md"
             type="submit"
           >
             Se Connecter

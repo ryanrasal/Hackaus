@@ -1,15 +1,17 @@
 import React, { useState } from "react";
-import list from "../assets/list.png";
-import home from "../assets/home.png";
+import { NavLink } from "react-router-dom";
+import list from "../assets/navbar/list.png";
+import home from "../assets/navbar/home.png";
 
 export default function NavbarBottom() {
   const [position, setPosition] = useState(1);
 
   return (
     <div className="fixed bottom-0 flex flex-col justify-between w-full items-end">
-      <div className="w-full border border-white h-20 bg-[#5e7c96] flex flex-row justify-around items-center">
-        <button
-          type="button"
+      <div className="w-full border border-white h-20 bg-[#384a5a] flex flex-row justify-around items-center">
+        <NavLink
+          to="/admin/home"
+          onClick={() => setPosition(1)}
           className={
             `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
             `${
@@ -17,10 +19,9 @@ export default function NavbarBottom() {
               " z-10 p-[7px] rounded-full bg-[#00ACB0] mb-[3.5rem] mr-3"
             }`
           }
-          onClick={() => setPosition(1)}
         >
           <img alt="" className="w-full h-7" src={home} />
-        </button>
+        </NavLink>
         {position === 1 && (
           <button
             className=" left-[-10px] md:left-[135px] bottom-9 absolute"
@@ -32,8 +33,8 @@ export default function NavbarBottom() {
             />
           </button>
         )}
-        <button
-          type="button"
+        <NavLink
+          to="/admin/addPhone"
           className={
             `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
             `${
@@ -48,7 +49,7 @@ export default function NavbarBottom() {
             src="https://file.rendit.io/n/ZExruSoumcloRitBTW6Y.svg"
             className="min-h-0 min-w-0 relative w-8 shrink-0"
           />
-        </button>
+        </NavLink>
         {position === 2 && (
           <button
             className=" left-[118px] md:left-[44vw] bottom-9 absolute"

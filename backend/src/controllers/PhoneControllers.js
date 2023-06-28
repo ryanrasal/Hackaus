@@ -38,7 +38,7 @@ async function edit(req, res) {
 }
 
 const add = (req, res) => {
-  const phone = req.body;
+  const phone = JSON.parse(req.body.phone);
   const { renamedFile } = req;
   phone.img = renamedFile;
 
