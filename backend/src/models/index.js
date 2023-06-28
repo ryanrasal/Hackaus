@@ -28,12 +28,17 @@ pool.getConnection().catch(() => {
 // declare and fill models: that's where you should register your own managers
 
 const models = {};
+const UserManager = require("./UserManager");
+
+models.user = new UserManager();
+models.user.setDatabase(pool);
 
 const PhoneManager = require("./PhoneManager");
-const RefPhoneManager = require("./RefPhoneManager");
 
 models.phone = new PhoneManager();
 models.phone.setDatabase(pool);
+
+const RefPhoneManager = require("./RefPhoneManager");
 
 models.phone_ref = new RefPhoneManager();
 models.phone_ref.setDatabase(pool);
