@@ -1,5 +1,6 @@
 import LoginPage from "./pages/LoginPage";
 import App from "./App";
+import Home from "./pages/Home";
 
 const Routes = [
   {
@@ -9,6 +10,10 @@ const Routes = [
       {
         index: true,
         element: <LoginPage />,
+      },
+      {
+        path: "home",
+        element: <Home />,
       },
     ],
   },
