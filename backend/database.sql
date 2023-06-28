@@ -35,9 +35,9 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `hackathon`.`user` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(255) NOT NULL,
-  `email` VARCHAR(150) NOT NULL,
   `lastname` VARCHAR(45) NULL,
+  `email` VARCHAR(150) NOT NULL,
+  `password` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) VISIBLE)
 ENGINE = InnoDB;
