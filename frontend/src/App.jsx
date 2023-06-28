@@ -1,9 +1,10 @@
+import { Outlet } from "react-router-dom";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <p className="text-red-500">coucou</p>
+    <div>
+      <Outlet />
     </div>
   );
 }
