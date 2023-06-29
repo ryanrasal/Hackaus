@@ -8,13 +8,12 @@ function Compare() {
   );
   const [scores, setScores] = useState({ score1: 0, score2: 0, score3: 0 });
   const [dataPhoneRef, setDataPhoneRef] = useState({
-    brand: "",
-    model: "",
+    brand: selectedPhone.brand,
+    model: selectedPhone.model,
     ram: "",
     storage: "",
     state: "",
   });
-
   const navigate = useNavigate();
 
   const onChange = (e) => {
@@ -73,6 +72,7 @@ function Compare() {
       }
     }
     localStorage.setItem("scores", JSON.stringify(updatedScores));
+    localStorage.setItem("dataPhoneRef", JSON.stringify(dataPhoneRef));
     setScores(updatedScores); // Update scores state with the updated scores
     navigate("/my-phone/recapitulatif");
   };

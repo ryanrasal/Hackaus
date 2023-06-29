@@ -102,58 +102,60 @@ export default function AddPhoneRef() {
   ];
 
   return (
-    <div className="flex flex-wrap justify-center mt-6">
+    <div className=" flex md:flex-col w-full flex-wrap justify-center mt-6 ">
       <h2 className="text-2xl font-bold text-center tracking-wider mb-4">
         Téléphone de référence
       </h2>
-      {selects.map((select) => (
-        <select
-          key={select.name}
-          name={select.name}
-          value={dataPhoneRef[select.name]}
+      <div className="flex md:w-[70vw] md:mx-auto flex-col md:flex-row md:flex-wrap ">
+        {selects.map((select) => (
+          <select
+            key={select.name}
+            name={select.name}
+            value={dataPhoneRef[select.name]}
+            onChange={onChange}
+            className="w-80 md:w-48 my-2 md:mx-3 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+          >
+            <option value="">{select.label}</option>
+            {select.options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        ))}
+        <input
+          type="text"
+          name="model"
+          value={dataPhoneRef.model}
           onChange={onChange}
-          className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-        >
-          <option value="">{select.label}</option>
-          {select.options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-      ))}
-      <input
-        type="text"
-        name="model"
-        value={dataPhoneRef.model}
-        onChange={onChange}
-        className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-        placeholder="Modèle"
-      />
+          className="w-80 md:mx-3 md:w-48 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+          placeholder="Modèle"
+        />
 
-      <input
-        type="text"
-        onChange={onChange}
-        name="price"
-        value={dataPhoneRef.price}
-        className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-        placeholder="Prix"
-      />
-      <input
-        type="file"
-        onChange={onChange}
-        ref={inputRef}
-        name="img"
-        className="my-4"
-        value={dataPhoneRef.img}
-      />
-      <button
-        onClick={handleSubmit}
-        type="button"
-        className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
-      >
-        Enregistrer
-      </button>
+        <input
+          type="text"
+          onChange={onChange}
+          name="price"
+          value={dataPhoneRef.price}
+          className="w-80 md:mx-3 md:w-48 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+          placeholder="Prix"
+        />
+        <input
+          type="file"
+          onChange={onChange}
+          ref={inputRef}
+          name="img"
+          className="my-4 ml-10"
+          value={dataPhoneRef.img}
+        />
+        <button
+          onClick={handleSubmit}
+          type="button"
+          className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
+        >
+          Enregistrer
+        </button>
+      </div>
     </div>
   );
 }

@@ -22,13 +22,13 @@ function PhoneCard({ phone, handleClick }) {
           {phone.model}
         </h5>
 
-        <div className="pt-2 text-1xl font-bold text-gray-100 dark:text-white">
+        <div className="pt-2 text-1xl font-bold text-gray-400 dark:text-white">
           {`Stockage : ${phone.storage} gb`}
         </div>
-        <div className="pt-2 text-1xl font-bold text-gray-100 dark:text-white">
+        <div className="pt-2 text-1xl font-bold text-gray-400 dark:text-white">
           {`ram : ${phone.ram} gb`}
         </div>
-        <div className=" pt-8 text-2xl font-bold text-gray-100 dark:text-white">
+        <div className=" pt-8 text-2xl font-bold text-gray-400 dark:text-white">
           {`${phone.price}€`}
         </div>
       </div>
