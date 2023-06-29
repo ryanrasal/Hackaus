@@ -108,48 +108,50 @@ function Compare() {
   ];
   return (
     <div>
-      <PhoneCard phone={selectedPhone} />
-      <div>
-        <input
-          type="text"
-          name="Marque"
-          readOnly
-          value={selectedPhone.brand}
-          className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-          placeholder="Modèle"
-        />
-        <input
-          type="text"
-          name="model"
-          readOnly
-          value={selectedPhone.model}
-          className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-          placeholder="Modèle"
-        />
-        {selects.map((select) => (
-          <select
-            key={select.name}
-            name={select.name}
-            value={dataPhoneRef[select.name]}
-            onChange={onChange}
-            className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-          >
-            <option value="">{select.label}</option>
-            {select.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </select>
-        ))}
+      <div className="md:flex">
+        <PhoneCard phone={selectedPhone} />
+        <div className="flex flex-col w-full justify-center">
+          <input
+            type="text"
+            name="Marque"
+            readOnly
+            value={selectedPhone.brand}
+            className="w-80 my-2 rounded-md mx-auto placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+            placeholder="Modèle"
+          />
+          <input
+            type="text"
+            name="model"
+            readOnly
+            value={selectedPhone.model}
+            className="w-80 my-2 rounded-md mx-auto placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+            placeholder="Modèle"
+          />
+          {selects.map((select) => (
+            <select
+              key={select.name}
+              name={select.name}
+              value={dataPhoneRef[select.name]}
+              onChange={onChange}
+              className="w-80 my-2 rounded-md mx-auto placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+            >
+              <option value="">{select.label}</option>
+              {select.options.map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          ))}
 
-        <button
-          onClick={handleClick}
-          type="button"
-          className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
-        >
-          Valider
-        </button>
+          <button
+            onClick={handleClick}
+            type="button"
+            className="bg-black md:w-[20vw] mt-4 mx-20 md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
+          >
+            Valider
+          </button>
+        </div>
       </div>
     </div>
   );

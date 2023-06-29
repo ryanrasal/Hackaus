@@ -12,6 +12,7 @@ import {
 import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import phoneDoctor from "../assets/home/phoneDoctor.png";
+import thanks from "../assets/thanks.png";
 
 const styles = StyleSheet.create({
   page: {
@@ -124,7 +125,7 @@ export default function PdfGenerator({ telephone, signatureImage }) {
           <Document>
             <Page size="A4" style={styles.page}>
               <View>
-                <Text style={styles.title}>Devis</Text>
+                <Text style={styles.title}>Récapitulatif Du Don</Text>
                 <View
                   style={{
                     height: "2px",
@@ -175,17 +176,16 @@ export default function PdfGenerator({ telephone, signatureImage }) {
                     </View>
                   </View>
                 </View>
-
-                <View style={styles.totalRow}>
-                  <Text style={styles.totalCell}>Montant total TTC :</Text>
-                  <Text style={styles.totalCell}>800 €</Text>
-                </View>
               </View>
               <Text>Fait le : {currentDate}</Text>
               <Text style={styles.titleSignature}>Signature :</Text>
               <View style={styles.signature}>
                 <Image src={signatureImage} style={styles.signatureImage} />
               </View>
+              <Image
+                style={{ height: "250px", width: "250px", marginLeft: "150px" }}
+                src={thanks}
+              />
             </Page>
           </Document>
         }

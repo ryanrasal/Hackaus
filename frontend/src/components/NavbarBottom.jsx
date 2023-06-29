@@ -43,7 +43,7 @@ export default function NavbarBottom() {
               `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
               `${
                 position === 2 &&
-                " z-10 p-[7px] rounded-full bg-[#00ACB0] mb-[3.5rem]"
+                " z-10 p-[7px] rounded-full bg-[#00ACB0] md:ml-4 mb-[3.5rem]"
               }`
             }
             onClick={() => setPosition(2)}

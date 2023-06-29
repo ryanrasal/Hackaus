@@ -58,26 +58,10 @@ function Recap() {
     <div className="h-[850px]">
       {showRecap && (
         <div>
-          <div>
-            <p>Système d'exploitation : </p>
-            <p>RAM : </p>
-            <p>Capacité de Stockage </p>
-          </div>
-          <div className="flex justify-around">
-            <button
-              type="button"
-              className="w-auto border-2 border-black px-4 text-amber-300 bg-blue-950 rounded-lg"
-            >
-              Très Bon Etat
-            </button>
-            <button
-              type="button"
-              className="w-auto border-2 border-black px-4 text-amber-300 bg-blue-950 rounded-lg"
-            >
-              Câble de chargement
-            </button>
-          </div>
-          <div className="flex justify-center w-full mb-12">
+          <h2 className="text-2xl font-bold text-center tracking-wider my-4">
+            Récapitulatif
+          </h2>
+          <div className="flex justify-center w-full mt-[-70px] mb-12">
             <div className="w-64 h-64 bg-[#002743] flex flex-col mt-[125px]  rounded-full  text-center p-10  ">
               <div className="text-white text-2xl">Catégorie</div>
               <div className="text-white text-6xl font-bold mt-10">
@@ -85,7 +69,7 @@ function Recap() {
               </div>
             </div>
 
-            <div className="absolute top-[280px]">
+            <div className="absolute top-[170px]">
               <CircularProgressbar
                 value={percentage}
                 styles={buildStyles({
@@ -115,7 +99,7 @@ function Recap() {
             </div>
           </div>
           <h3 className="text-2xl mt-6 text-center font-bold">
-            Prix de vente conseillé :{" "}
+            Prix de vente conseillé : {score * 120}€
           </h3>
           <div className="flex justify-around mt-6">
             <button
@@ -124,14 +108,14 @@ function Recap() {
             >
               Retour
             </button>
+            <button
+              onClick={handleShowModal}
+              type="button"
+              className="border-2 h-12 w-auto px-4 rounded-full text-white text-2xl bg-[#00ACB0] font-bold"
+            >
+              Recapitulatif PDF
+            </button>
           </div>
-          <button
-            onClick={handleShowModal}
-            type="button"
-            className="border-2 h-12 w-auto px-4 rounded-full text-white text-2xl bg-[#00ACB0] font-bold"
-          >
-            Faire un devis
-          </button>
         </div>
       )}
 

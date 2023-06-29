@@ -37,10 +37,10 @@ export default function Home() {
           <h2 className="uppercase">Bienvenue</h2>
         </div>
         <div className="flex flex-col  md:flex-row md:justify-evenly items-center mb-4 justify-center w-full space-x-1">
-          <div className="flex items-center">
+          <div className="flex justify-center items-center">
             <input
               type="text"
-              className="block w-2/3 md:w-1/2 md:mr-2 px-4 py-2 placeholder:text-xl bg-white border rounded-full "
+              className="block w-2/3 md:w-1/2 mr-2 px-4 py-2 placeholder:text-xl bg-white border rounded-full "
               placeholder="Rechercher..."
               value={search}
               onChange={(e) => setSearch(e.target.value)}
@@ -68,7 +68,7 @@ export default function Home() {
         </div>
       </div>
       {search !== "" ? (
-        <div className="flex justify-around">
+        <div className="flex flex-col md:flex-row md:justify-around">
           {filterRef.map((phone) => (
             <PhoneCard handleClick={handleClick} phone={phone} />
           ))}
@@ -76,12 +76,12 @@ export default function Home() {
       ) : (
         <div className="relative w-full h-[60vh]">
           <img
-            className="absolute md:flex md:mx-auto md:w-full z-0 top-0 left-6 h-2/3"
+            className="absolute md:flex md:mx-auto md:w-full z-0 md:top-0 md:left-0 top-[55px] left-6 h-2/3"
             src={circle}
             alt=""
           />
           <img
-            className="relative md:flex md:mx-auto md:top-8 md:left-0  top-28 z-20 left-14 h-1/2"
+            className="relative md:flex md:mx-auto md:top-8 md:-left-7  top-[6rem] z-20 left-14 h-1/2"
             src={phoneDoctor}
             alt=""
           />
