@@ -60,7 +60,7 @@ export default function Home() {
           </button>
         </div>
       </div>
-      {search.length > 2 ? (
+      {search !== "" ? (
         filterRef.map((phone) => <PhoneCard phone={phone} />)
       ) : (
         <div className="relative w-full h-[60vh]">
