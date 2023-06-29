@@ -16,7 +16,7 @@ export default function NavbarBottom() {
             `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
             `${
               position === 1 &&
-              " z-10 p-[7px] rounded-full bg-[#00ACB0] mb-[3.5rem] mr-3"
+              " z-10 p-[7px] rounded-full md:mr-10 bg-[#00ACB0] mb-[3.5rem] mr-3"
             }`
           }
         >
@@ -67,7 +67,7 @@ export default function NavbarBottom() {
             `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
             `${
               position === 3 &&
-              " z-10 p-[7px] rounded-full bg-[#00ACB0] mb-[3.5rem]"
+              " z-10 p-[7px] rounded-full md:ml-5 bg-[#00ACB0] mb-[3.5rem]"
             }`
           }
           onClick={() => setPosition(3)}
