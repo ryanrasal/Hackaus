@@ -83,10 +83,12 @@ export default function NavbarBottom() {
             className=" left-[247px] md:left-[77.5vw] bottom-9 absolute"
             type="button"
           >
-            <img
-              alt=""
-              src="https://file.rendit.io/n/JmDPV30Lqtq2zHhGYhfI.svg"
-            />
+            <NavLink to="/admin/dashboard">
+              <img
+                alt=""
+                src="https://file.rendit.io/n/JmDPV30Lqtq2zHhGYhfI.svg"
+              />
+            </NavLink>
           </button>
         )}
       </div>
