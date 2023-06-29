@@ -19,6 +19,13 @@ class PhoneRefManager extends AbstractManager {
       ]
     );
   }
+
+  findPhoneName(phoneRef) {
+    return this.database.query(
+      `SELECT * FROM ${this.table} WHERE brand = ? AND model = ?`,
+      [phoneRef.brand, phoneRef.model]
+    );
+  }
 }
 
 module.exports = PhoneRefManager;

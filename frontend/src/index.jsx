@@ -1,4 +1,4 @@
-import ComparePhone from "@pages/ComparePhone";
+import ComparePhone from "./pages/ComparePhone";
 import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";

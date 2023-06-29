@@ -9,7 +9,7 @@ import {
   PDFDownloadLink,
   Image,
 } from "@react-pdf/renderer";
-import power from "../assets/navbar/power.png";
+import moment from "moment";
 import phoneDoctor from "../assets/home/phoneDoctor.png";
 
 const styles = StyleSheet.create({
@@ -79,6 +79,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     height: 24,
     marginTop: 10,
+    marginBottom: 5,
     backgroundColor: "#3423",
   },
   totalCell: {
@@ -105,6 +106,8 @@ const styles = StyleSheet.create({
 });
 
 export default function PdfGenerator({ telephone, signatureImage }) {
+  const currentDate = moment().format("DD/MM/YYYY HH:mm");
+
   return (
     <div>
       <PDFDownloadLink
@@ -169,6 +172,7 @@ export default function PdfGenerator({ telephone, signatureImage }) {
                   <Text style={styles.totalCell}>800 €</Text>
                 </View>
               </View>
+              <Text>Fait le : {currentDate}</Text>
               <Text style={styles.titleSignature}>Signature :</Text>
               <View style={styles.signature}>
                 <Image src={signatureImage} style={styles.signatureImage} />
@@ -178,7 +182,10 @@ export default function PdfGenerator({ telephone, signatureImage }) {
         }
         fileName={`${telephone.brand}.pdf`}
       >
-        <img alt="" src={power} size="Small" />
+        <button className="text-white" type="button">
+          {" "}
+          Télécharger Le PDF{" "}
+        </button>
       </PDFDownloadLink>
     </div>
   );
