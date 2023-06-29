@@ -1,4 +1,4 @@
-import ManageRef from "@components/ManageRef";
+import ManageRef from "./components/ManageRef";
 import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";

@@ -207,6 +207,14 @@ function ManageRef() {
             placeholder="Modèle"
             onChange={onChange}
           />
+          <input
+            type="text"
+            name="price"
+            value={dataPhoneRef.price}
+            className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+            placeholder="Prix"
+            onChange={onChange}
+          />
 
           <button
             onClick={handleEdit}
