@@ -38,14 +38,16 @@ async function edit(req, res) {
 }
 
 const add = (req, res) => {
-  const phone = JSON.parse(req.body.phone_ref);
+  const phoneRef = JSON.parse(req.body.phoneRef);
   const { renamedFile } = req;
-  phone.img = renamedFile;
+  phoneRef.img = renamedFile;
+
+  // TODO validations (length, format...)
 
   models.phone_ref
-    .insert(phone)
+    .insert(phoneRef)
     .then(([result]) => {
-      res.location(`/phone-/${result.insertId}`).sendStatus(201);
+      res.location(`/phone-ref/${result.insertId}`).sendStatus(201);
     })
     .catch((err) => {
       console.error(err);
