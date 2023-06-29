@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 
 export default function AdminDashboard() {
   const [users, setUsers] = useState([]);
-  const [reload, setReload] = useState(false);
 
   const [showModal, setShowModal] = useState(false);
 
@@ -14,7 +13,7 @@ export default function AdminDashboard() {
   };
   useEffect(() => {
     fetchUsers();
-  }, [reload]);
+  }, []);
 
   const handleDelete = (id) => {
     const myHeaders = new Headers();
@@ -35,7 +34,6 @@ export default function AdminDashboard() {
       })
       .then(() => {
         fetchUsers();
-        setReload(!reload);
         setShowModal(false);
       })
       .catch((err) => {
