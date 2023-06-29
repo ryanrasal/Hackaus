@@ -36,7 +36,7 @@ function Compare() {
           updatedScores.score1 += 40;
           break;
         case "3":
-          updatedScores.score1 += 154;
+          updatedScores.score1 += 54;
           break;
         default:
           break;

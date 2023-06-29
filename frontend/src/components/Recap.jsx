@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 import React, { useState, useEffect } from "react";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
@@ -12,9 +13,16 @@ function Recap() {
 
   const percentage = (score / maxScore) * 100;
 
-  const colorGradient =
-    // eslint-disable-next-line no-nested-ternary
-    percentage > 60 ? "green" : percentage > 30 ? "[#eab308]" : "red";
+  let colorGradient;
+  if (percentage > 90) {
+    colorGradient = "green";
+  } else if (percentage > 60) {
+    colorGradient = "#6be338";
+  } else if (percentage > 30) {
+    colorGradient = "#eab308";
+  } else {
+    colorGradient = "red";
+  }
 
   useEffect(() => {
     if (total > "90" && total < "166") {
@@ -34,14 +42,33 @@ function Recap() {
   }, [category, total]);
 
   return (
-    <div>
+    <div className="h-[850px]">
+      <div>
+        <p>Système d'exploitation : </p>
+        <p>RAM : </p>
+        <p>Capacité de Stockage </p>
+      </div>
+      <div className="flex justify-around">
+        <button
+          type="button"
+          className="w-auto border-2 border-black px-4 text-amber-300 bg-blue-950 rounded-lg"
+        >
+          Très Bon Etat
+        </button>
+        <button
+          type="button"
+          className="w-auto border-2 border-black px-4 text-amber-300 bg-blue-950 rounded-lg"
+        >
+          Câble de chargement
+        </button>
+      </div>
       <div className="flex justify-center w-full mb-12">
-        <div className="w-64 h-64 bg-[#002743] flex flex-col mt-[122px]  rounded-full  text-center p-10  ">
+        <div className="w-64 h-64 bg-[#002743] flex flex-col mt-[125px]  rounded-full  text-center p-10  ">
           <div className="text-white text-2xl">Catégorie</div>
           <div className="text-white text-6xl font-bold mt-10">{category}</div>
         </div>
 
-        <div className="absolute top-44">
+        <div className="absolute top-[280px]">
           <CircularProgressbar
             value={percentage}
             styles={buildStyles({
