@@ -58,9 +58,9 @@ function LoginPage() {
       ) : (
         <form
           onSubmit={handleSubmit}
-          className=" flex flex-col px-4 mx-4 pt-[50%]"
+          className=" flex flex-col px-4 mx-4 pt-[50%] md:pt-0 md:mx-[20vw]"
         >
-          <h1 className="text-white text-center mb-4 uppercase pb-2 text-3xl tracking-wider font-semibold">
+          <h1 className="text-white text-center mb-4 md:mt-20 uppercase pb-2 text-3xl tracking-wider font-semibold">
             Emmaüs Connect
           </h1>
           <p className="tracking-wider text-xl text-white text-center">
