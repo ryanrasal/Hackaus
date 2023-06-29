@@ -9,7 +9,7 @@ function Loading() {
     }, 1000);
   }, []);
 
-  const user = JSON.parse(localStorage.getItem("user"));
+  // const user = JSON.parse(localStorage.getItem("user"));
 
   return (
     <div className="loading">
@@ -23,9 +23,6 @@ function Loading() {
       ) : (
         <div className="flex flex-col justify-center">
           <img src={succes} className="rounded-full" alt="" />
-          <p className="loading-text text-white font-bold text-2xl">
-            Bienvenue {user.firstname} {user.lastname}
-          </p>
         </div>
       )}
     </div>

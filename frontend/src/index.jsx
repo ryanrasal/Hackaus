@@ -8,6 +8,7 @@ import AddPhoneRef from "./pages/AddPhoneRef";
 import AdminFormUser from "./components-admin/AdminFormUser";
 import AddPhone from "./pages/AddPhone";
 import Compare from "./pages/Compare";
+import Recap from "./components/Recap";
 
 const Routes = [
   {
@@ -51,6 +52,16 @@ const Routes = [
       {
         path: "addPhoneRef",
         element: <AddPhoneRef />,
+      },
+    ],
+  },
+  {
+    path: "/my-phone",
+    element: <User />,
+    children: [
+      {
+        path: "recapitulatif",
+        element: <Recap />,
       },
     ],
   },
