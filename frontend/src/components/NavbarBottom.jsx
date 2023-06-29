@@ -61,8 +61,8 @@ export default function NavbarBottom() {
             />
           </button>
         )}
-        <button
-          type="button"
+        <NavLink
+          to="/admin/dashboard"
           className={
             `min-h-0 min-w-0 relative shrink-0 transition-all 0.5s ease-in-out` +
             `${
@@ -77,18 +77,16 @@ export default function NavbarBottom() {
             src={list}
             className="min-h-0 min-w-0 relative w-8 shrink-0"
           />
-        </button>
+        </NavLink>
         {position === 3 && (
           <button
             className=" left-[247px] md:left-[77.5vw] bottom-9 absolute"
             type="button"
           >
-            <NavLink to="/admin/dashboard">
-              <img
-                alt=""
-                src="https://file.rendit.io/n/JmDPV30Lqtq2zHhGYhfI.svg"
-              />
-            </NavLink>
+            <img
+              alt=""
+              src="https://file.rendit.io/n/JmDPV30Lqtq2zHhGYhfI.svg"
+            />
           </button>
         )}
       </div>

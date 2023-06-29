@@ -3,6 +3,7 @@ import App from "./App";
 import Home from "./pages/Home";
 import User from "./User";
 import AdminDashboard from "./pages/AdminDashboard";
+import AddPhoneRef from "./pages/AddPhoneRef";
 import AdminFormUser from "./components-admin/AdminFormUser";
 import AddPhone from "./pages/AddPhone";
 
@@ -36,6 +37,10 @@ const Routes = [
       {
         path: "addPhone",
         element: <AddPhone />,
+      },
+      {
+        path: "addPhoneRef",
+        element: <AddPhoneRef />,
       },
     ],
   },

@@ -48,7 +48,12 @@ router.delete("/phone/:id", phoneController.destroy);
 router.get("/phone-ref", RefPhoneController.browse);
 router.get("/phone-ref/:id", RefPhoneController.read);
 router.put("/phone-ref/:id", RefPhoneController.edit);
-router.post("/phone-ref", RefPhoneController.add);
+router.post(
+  "/phone-ref",
+  upload.single("picture"),
+  fileControllers.fileRename,
+  RefPhoneController.add
+);
 router.delete("/phone-ref/:id", RefPhoneController.destroy);
 
 module.exports = router;
