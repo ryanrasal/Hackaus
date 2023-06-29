@@ -53,6 +53,12 @@ export default function AdminDashboard() {
       >
         Créer un utilisateur
       </NavLink>
+      <NavLink
+        to="/admin/manageRef"
+        className="mt-10 ml-5 bg-[#00ACB0] text-white p-4 rounded-full shadow hover:bg-blue-700 "
+      >
+        Téléphones
+      </NavLink>
       <div className="md:grid md:grid-cols-3 md:gap-3 mt-4">
         {users.map((user) => (
           <div

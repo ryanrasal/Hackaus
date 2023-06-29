@@ -22,7 +22,7 @@ function Recap() {
   let colorGradient;
   if (percentage > 90) {
     colorGradient = "green";
-  } else if (percentage > 60) {
+  } else if (percentage > 50) {
     colorGradient = "#6be338";
   } else if (percentage > 30) {
     colorGradient = "#eab308";
