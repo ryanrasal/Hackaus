@@ -55,9 +55,9 @@ export default function AdminDashboard() {
       </NavLink>
       <NavLink
         to="/admin/manageRef"
-        className="mt-10 bg-[#00ACB0] text-white p-4 rounded-full shadow hover:bg-blue-700 "
+        className="mt-10 ml-5 bg-[#00ACB0] text-white p-4 rounded-full shadow hover:bg-blue-700 "
       >
-        Gérer téléphones
+        Téléphones
       </NavLink>
       <div className="md:grid md:grid-cols-3 md:gap-3 mt-4">
         {users.map((user) => (

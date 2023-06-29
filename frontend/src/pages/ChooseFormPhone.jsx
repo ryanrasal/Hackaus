@@ -10,21 +10,21 @@ export default function ChooseFormPhone() {
         Choisis un Téléphone à ajouter
       </h2>
       <div className="flex flex-col justify-center text-center">
-        <div className="bg-black w-1/2 mb-4 mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg">
+        <div className="bg-[#00ACB0] w-1/2 mb-4 mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg">
           <NavLink to="/admin/addPhone">Téléphone d'occasion</NavLink>
         </div>
-        <div className="bg-black w-1/2 mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg">
+        <div className="bg-[#00ACB0] w-1/2 mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg">
           <NavLink to="/admin/addPhoneRef">Téléphone de référence</NavLink>
         </div>
       </div>
       <div className="relative w-full h-[60vh]">
         <img
-          className="absolute md:flex md:mx-auto md:left-0 md:top-2 md:w-full z-0 top-0 left-6 h-2/3"
+          className="absolute md:flex md:mx-auto md:left-0 md:top-2 md:w-full z-0 top-[55px] left-6 h-2/3"
           src={circle}
           alt=""
         />
         <img
-          className="relative md:flex md:mx-auto md:top-6 md:left-0  top-28 z-20 left-14 h-1/2"
+          className="relative md:flex md:mx-auto md:top-6 md:left-0  top-[96px] z-20 left-14 h-1/2"
           src={phoneDoctor}
           alt=""
         />
