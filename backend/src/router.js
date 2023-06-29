@@ -13,6 +13,7 @@ const userControllers = require("./controllers/UserControllers");
 const authControllers = require("./controllers/authControllers");
 const phoneController = require("./controllers/PhoneControllers");
 const RefPhoneController = require("./controllers/RefPhoneControllers");
+const PhoneBrandControllers = require("./controllers/PhoneBrandControllers");
 
 /// /// LOGIN ROUTE //////
 
@@ -45,6 +46,7 @@ router.delete("/phone/:id", phoneController.destroy);
 
 /// / REF PHONE ROUTES ////
 
+router.get("/phone-brands", PhoneBrandControllers.getPhoneBrands);
 router.get("/phone-ref", RefPhoneController.browse);
 router.get("/phone-ref/:id", RefPhoneController.read);
 router.put("/phone-ref/:id", RefPhoneController.edit);

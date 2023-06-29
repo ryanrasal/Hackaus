@@ -1,3 +1,4 @@
+import ComparePhone from "@pages/ComparePhone";
 import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";
@@ -46,6 +47,10 @@ const Routes = [
       {
         path: "addPhoneRef",
         element: <AddPhoneRef />,
+      },
+      {
+        path: "comparePhone",
+        element: <ComparePhone />,
       },
     ],
   },

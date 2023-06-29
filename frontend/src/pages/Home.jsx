@@ -1,15 +1,17 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import circle from "../assets/home/circle.svg";
 import phoneDoctor from "../assets/home/phoneDoctor.png";
 
 export default function Home() {
+  const navigate = useNavigate();
   return (
     <div>
-      <div className="text-3xl tracking-wider font-bold flex flex-col items-center justify-center h-[20vh]">
+      <div className="text-3xl mb-[5vh]  tracking-wider font-bold flex flex-col items-center justify-center h-[20vh]">
         <div className="my-10">
           <h2 className="uppercase">Bienvenue</h2>
         </div>
-        <div className="flex items-center justify-center w-full space-x-1">
+        <div className="flex items-center mb-4 justify-center w-full space-x-1">
           <input
             type="text"
             className="block w-2/3  px-4 py-2 placeholder:text-xl bg-white border rounded-full "
@@ -35,6 +37,13 @@ export default function Home() {
             </svg>
           </button>
         </div>
+        <button
+          type="button"
+          className="bg-black text-white text-lg p-2 rounded-full"
+          onClick={() => navigate("/admin/comparePhone")}
+        >
+          Faire une comparaison
+        </button>
       </div>
       <div className="relative w-full h-[60vh]">
         <img className="absolute z-0 top-14 left-6 h-2/3" src={circle} alt="" />
