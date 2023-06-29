@@ -2,11 +2,15 @@
 /* eslint-disable jsx-a11y/img-redundant-alt */
 import React from "react";
 
-function PhoneCard({ phone }) {
+function PhoneCard({ phone, handleClick }) {
   const { VITE_BACKEND_URL } = import.meta.env;
 
   return (
-    <div className="flex w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+    // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
+    <div
+      className="flex w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+      onClick={() => handleClick(phone)}
+    >
       <img
         className="p-8 h-60 rounded-t-lg"
         src={`${VITE_BACKEND_URL}/uploads/${phone.img}`}
