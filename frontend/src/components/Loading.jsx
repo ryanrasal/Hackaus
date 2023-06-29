@@ -23,9 +23,9 @@ function Loading() {
       ) : (
         <div className="flex flex-col justify-center">
           <img src={succes} className="rounded-full" alt="" />
-          <p className="loading-text text-white font-bold text-2xl">
-            Bienvenue {user.firstname} {user.lastname}
-          </p>
+          <h2 className="text-white text-2xl font-bold">
+            Bonjour {user.firstname} {user.lastname}{" "}
+          </h2>
         </div>
       )}
     </div>

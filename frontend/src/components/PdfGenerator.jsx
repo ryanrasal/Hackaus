@@ -9,6 +9,7 @@ import {
   PDFDownloadLink,
   Image,
 } from "@react-pdf/renderer";
+import { useNavigate } from "react-router-dom";
 import moment from "moment";
 import phoneDoctor from "../assets/home/phoneDoctor.png";
 
@@ -106,6 +107,14 @@ const styles = StyleSheet.create({
 });
 
 export default function PdfGenerator({ telephone, signatureImage }) {
+  const navigate = useNavigate();
+
+  const handleClose = () => {
+    setTimeout(() => {
+      navigate("/admin/home");
+    }, 1000);
+  };
+
   const currentDate = moment().format("DD/MM/YYYY HH:mm");
 
   return (
@@ -182,8 +191,7 @@ export default function PdfGenerator({ telephone, signatureImage }) {
         }
         fileName={`${telephone.brand}.pdf`}
       >
-        <button className="text-white" type="button">
-          {" "}
+        <button onClick={handleClose} className="text-white" type="button">
           Télécharger Le PDF{" "}
         </button>
       </PDFDownloadLink>

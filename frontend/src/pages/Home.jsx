@@ -8,7 +8,13 @@ import phoneDoctor from "../assets/home/phoneDoctor.png";
 export default function Home() {
   const [phoneRef, setPhoneRef] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
+  const filterRef = phoneRef.filter(
+    (item) =>
+      item.model.toLowerCase().includes(search.toLowerCase()) ||
+      item.brand.toLowerCase().includes(search.toLowerCase())
+  );
   useEffect(() => {
     axios
       .get("http://localhost:5000/phone-ref")
@@ -20,16 +26,12 @@ export default function Home() {
       });
   }, []);
 
-  const filterRef = phoneRef.filter(
-    (item) =>
-      item.model.toLowerCase().includes(search.toLowerCase()) ||
-      item.brand.toLowerCase().includes(search.toLowerCase())
-  );
-
-  const navigate = useNavigate();
-
+  const handleClick = (phone) => {
+    localStorage.setItem("selectedPhone", JSON.stringify(phone));
+    navigate("/my-phone/compare");
+  };
   return (
-    <div>
+    <div className="overflow-hidden">
       <div className="text-3xl mb-[5vh] tracking-wider font-bold flex flex-col items-center justify-center">
         <div className="mt-5 mb-4">
           <h2 className="uppercase">Bienvenue</h2>
@@ -63,20 +65,12 @@ export default function Home() {
               </svg>
             </button>
           </div>
-
-          <button
-            type="button"
-            className="bg-black text-white text-lg p-2 rounded-full"
-            onClick={() => navigate("/admin/comparePhone")}
-          >
-            Faire une comparaison
-          </button>
         </div>
       </div>
       {search !== "" ? (
         <div className="flex justify-around">
           {filterRef.map((phone) => (
-            <PhoneCard phone={phone} />
+            <PhoneCard handleClick={handleClick} phone={phone} />
           ))}
         </div>
       ) : (

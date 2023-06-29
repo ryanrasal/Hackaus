@@ -1,4 +1,3 @@
-import ComparePhone from "./pages/ComparePhone";
 import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";
@@ -8,6 +7,9 @@ import AdminDashboard from "./pages/AdminDashboard";
 import AddPhoneRef from "./pages/AddPhoneRef";
 import AdminFormUser from "./components-admin/AdminFormUser";
 import AddPhone from "./pages/AddPhone";
+import Compare from "./pages/Compare";
+import Recap from "./components/Recap";
+import ModaleSignature from "./pages/ModaleSignature";
 
 const Routes = [
   {
@@ -49,8 +51,22 @@ const Routes = [
         element: <AddPhoneRef />,
       },
       {
-        path: "comparePhone",
-        element: <ComparePhone />,
+        path: "ModaleSignature",
+        element: <ModaleSignature />,
+      },
+    ],
+  },
+  {
+    path: "/my-phone",
+    element: <User />,
+    children: [
+      {
+        path: "recapitulatif",
+        element: <Recap />,
+      },
+      {
+        path: "compare",
+        element: <Compare />,
       },
     ],
   },
