@@ -22,7 +22,7 @@ function Recap() {
   let colorGradient;
   if (percentage > 90) {
     colorGradient = "green";
-  } else if (percentage > 60) {
+  } else if (percentage > 50) {
     colorGradient = "#6be338";
   } else if (percentage > 30) {
     colorGradient = "#eab308";
@@ -124,14 +124,14 @@ function Recap() {
             >
               Retour
             </button>
+            <button
+              onClick={handleShowModal}
+              type="button"
+              className="border-2 h-12 w-auto px-4 rounded-full text-white text-2xl bg-[#00ACB0] font-bold"
+            >
+              Faire un devis
+            </button>
           </div>
-          <button
-            onClick={handleShowModal}
-            type="button"
-            className="border-2 h-12 w-auto px-4 rounded-full text-white text-2xl bg-[#00ACB0] font-bold"
-          >
-            Faire un devis
-          </button>
         </div>
       )}
 
