@@ -28,27 +28,14 @@ const read = (req, res) => {
     });
 };
 
-const edit = (req, res) => {
-  const user = req.body;
+async function edit(req, res) {
+  const { status, message } = await models.user.update(
+    req.body,
+    parseInt(req.params.id, 10)
+  );
 
-  // TODO validations (length, format...)
-
-  user.id = parseInt(req.params.id, 10);
-
-  models.user
-    .update(user)
-    .then(([result]) => {
-      if (result.affectedRows === 0) {
-        res.sendStatus(404);
-      } else {
-        res.sendStatus(204);
-      }
-    })
-    .catch((err) => {
-      console.error(err);
-      res.sendStatus(500);
-    });
-};
+  return res.status(status).json(message);
+}
 
 const add = (req, res) => {
   const user = req.body;
