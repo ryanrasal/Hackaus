@@ -36,7 +36,7 @@ function Compare() {
           updatedScores.score1 += 40;
           break;
         case "3":
-          updatedScores.score1 += 54;
+          updatedScores.score1 += 154;
           break;
         default:
           break;
@@ -94,7 +94,6 @@ function Compare() {
         { label: "16GB", value: "16" },
         { label: "32GB", value: "32" },
         { label: "64GB", value: "64" },
-        { label: "256GB", value: "256" },
       ],
     },
     {
