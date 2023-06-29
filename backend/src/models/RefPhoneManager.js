@@ -7,7 +7,7 @@ class PhoneManager extends AbstractManager {
 
   insert(phone) {
     return this.database.query(
-      `insert into ${this.table} (brand,model,ram,storage,state,img,price) values (?,?,?,?,?,?,?)`,
+      `insert into ${this.table} (brand, model, ram, storage, state, img, price) values (?, ?, ?, ?, ?, ?, ?)`,
       [
         phone.brand,
         phone.model,
