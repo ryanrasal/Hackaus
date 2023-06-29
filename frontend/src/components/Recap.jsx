@@ -3,16 +3,12 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 
 function Recap() {
-  const [category, setCategory] = useState("3-B");
+  const [scoresResult] = useState(JSON.parse(localStorage.getItem("scores")));
+  const { score1, score2, score3 } = scoresResult;
+  const total = score1 + score2 + score3;
+  const [category, setCategory] = useState("");
   const [score, setScore] = useState(4);
-
-  const [maxScore, setMaxScore] = useState(5);
-
-  // eslint-disable-next-line no-unused-vars
-  const handleCAtegory = () => {
-    setCategory("2-A");
-    setMaxScore(5);
-  };
+  const [maxScore] = useState(5);
 
   const percentage = (score / maxScore) * 100;
 
@@ -21,9 +17,21 @@ function Recap() {
     percentage > 60 ? "green" : percentage > 30 ? "[#eab308]" : "red";
 
   useEffect(() => {
+    if (total > "90" && total < "166") {
+      setCategory("2-C");
+    } else if (total > "165" && total < "255") {
+      setCategory("3-B");
+    } else if (total > "255" && total < "375") {
+      setCategory("4-A");
+    } else if (total > "375") {
+      setCategory("5-P");
+    } else {
+      setCategory("1 - HC");
+    }
+
     const newScore = parseInt(category.split("-")[0], 10);
     setScore(newScore);
-  }, [category]);
+  }, [category, total]);
 
   return (
     <div>
@@ -51,13 +59,15 @@ function Recap() {
       </div>
       <div className="flex justify-around">
         <div className="rounded-full h-12 w-12 bg-[#00ACB0] flex items-center justify-center">
-          45 {/* {antutuScore} */}
+          {scoresResult.score3}
+          {/* {antutuScore} */}
         </div>
         <div className="rounded-full h-12 w-12 bg-[#00ACB0] flex items-center justify-center">
-          90 {/* {ramScore} */}
+          {scoresResult.score1} {/* {ramScore} */}
         </div>
         <div className="rounded-full h-12 w-12 bg-[#00ACB0] flex items-center justify-center">
-          30 {/* {stockageScore} */}
+          {scoresResult.score2}
+          {/* {stockageScore} */}
         </div>
       </div>
       <h3 className="text-2xl mt-6 text-center font-bold">
