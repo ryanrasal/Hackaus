@@ -103,6 +103,9 @@ export default function AddPhoneRef() {
 
   return (
     <div className="flex flex-wrap justify-center mt-6">
+      <h2 className="text-2xl font-bold text-center tracking-wider mb-4">
+        Téléphone de référence
+      </h2>
       {selects.map((select) => (
         <select
           key={select.name}
@@ -141,12 +144,13 @@ export default function AddPhoneRef() {
         onChange={onChange}
         ref={inputRef}
         name="img"
+        className="my-4"
         value={dataPhoneRef.img}
       />
       <button
         onClick={handleSubmit}
         type="button"
-        className="bg-black text-white p-3 rounded-lg"
+        className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
       >
         Enregistrer
       </button>
