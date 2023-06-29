@@ -80,7 +80,6 @@ export default function AddPhone() {
             className="w-80 md:w-48 my-2 md:mx-3 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
           />
         ))}
-
         <input
           type="file"
           onChange={onChange}

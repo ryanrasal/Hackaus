@@ -9,6 +9,7 @@ import AdminFormUser from "./components-admin/AdminFormUser";
 import AddPhone from "./pages/AddPhone";
 import Compare from "./pages/Compare";
 import Recap from "./components/Recap";
+import ModaleSignature from "./pages/ModaleSignature";
 
 const Routes = [
   {
@@ -18,10 +19,6 @@ const Routes = [
       {
         path: "/",
         element: <LoginPage />,
-      },
-      {
-        path: "/compare",
-        element: <Compare />,
       },
     ],
   },
@@ -53,6 +50,10 @@ const Routes = [
         path: "addPhoneRef",
         element: <AddPhoneRef />,
       },
+      {
+        path: "ModaleSignature",
+        element: <ModaleSignature />,
+      },
     ],
   },
   {
@@ -62,6 +63,10 @@ const Routes = [
       {
         path: "recapitulatif",
         element: <Recap />,
+      },
+      {
+        path: "compare",
+        element: <Compare />,
       },
     ],
   },

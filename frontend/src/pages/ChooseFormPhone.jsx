@@ -18,9 +18,13 @@ export default function ChooseFormPhone() {
         </div>
       </div>
       <div className="relative w-full h-[60vh]">
-        <img className="absolute z-0 top-14 left-6 h-2/3" src={circle} alt="" />
         <img
-          className="relative top-28 z-20 left-14 h-1/2"
+          className="absolute md:flex md:mx-auto md:left-0 md:top-2 md:w-full z-0 top-0 left-6 h-2/3"
+          src={circle}
+          alt=""
+        />
+        <img
+          className="relative md:flex md:mx-auto md:top-6 md:left-0  top-28 z-20 left-14 h-1/2"
           src={phoneDoctor}
           alt=""
         />
