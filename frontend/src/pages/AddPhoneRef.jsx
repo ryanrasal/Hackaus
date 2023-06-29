@@ -10,7 +10,7 @@ export default function AddPhoneRef() {
     storage: "",
     state: "",
     img: "",
-    price: "",
+    price: "800" || "",
   });
 
   const inputRef = useRef(null);
@@ -39,11 +39,8 @@ export default function AddPhoneRef() {
         headers: myHeaders,
         body: formData,
       };
-      fetch(`http://localhost:5000/phone-ref`, requestOptions).then(
-        (response) => response.text()
-      );
-      console
-        .warn(dataPhoneRef)
+      fetch(`http://localhost:5000/phone-ref`, requestOptions)
+        .then((response) => response.text())
         .then(() => {
           toast.success("Téléphone Ajouté", {
             position: "top-right",
@@ -57,49 +54,102 @@ export default function AddPhoneRef() {
     }
   };
 
-  const inputs = [
-    { name: "brand", placeholder: "marque" },
-    { name: "model", placeholder: "modèle" },
-    { name: "ram", placeholder: "ram" },
-    { name: "storage", placeholder: "stockage" },
-    { name: "state", placeholder: "état" },
-    { name: "price", placeholder: "price" },
+  const selects = [
+    {
+      name: "brand",
+      label: "Marque",
+      options: [
+        { label: "Iphone", value: "Iphone" },
+        { label: "Samsung", value: "Samsung" },
+        { label: "Huawei", value: "Huawei" },
+        { label: "Oppo", value: "Oppo" },
+        { label: "Xiaomi", value: "Xiaomi" },
+        { label: "Google", value: "Google" },
+        { label: "OnePlus", value: "OnePlus" },
+        { label: "LG", value: "LG" },
+        { label: "Sony", value: "Sony" },
+      ],
+    },
+    {
+      name: "ram",
+      label: "Mémoire",
+      options: [
+        { label: "2GB", value: "2" },
+        { label: "4GB", value: "4" },
+        { label: "8GB", value: "8" },
+        { label: "16GB", value: "16" },
+      ],
+    },
+    {
+      name: "storage",
+      label: "Stockage",
+      options: [
+        { label: "32GB", value: "32" },
+        { label: "64GB", value: "64" },
+        { label: "128GB", value: "128" },
+        { label: "256GB", value: "256" },
+      ],
+    },
+    {
+      name: "state",
+      label: "État",
+      options: [
+        { label: "Deee", value: 0 },
+        { label: "Réparable", value: 1 },
+        { label: "Reconditionable", value: 2 },
+      ],
+    },
   ];
 
   return (
-    <div className=" flex md:flex-col w-full flex-wrap justify-center mt-6 ">
-      <h2 className="text-2xl font-bold text-center tracking-wider mb-4">
-        Téléphone Référence
-      </h2>
-      <div className="flex md:w-[70vw] md:mx-auto flex-col md:flex-row md:flex-wrap ">
-        {inputs.map((input) => (
-          <input
-            key={input.name}
-            type="text"
-            name={input.name}
-            value={dataPhoneRef[input.name]}
-            onChange={onChange}
-            placeholder={input.placeholder}
-            className="w-80 md:w-48 my-2 md:mx-3 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
-          />
-        ))}
-
-        <input
-          type="file"
+    <div className="flex flex-wrap justify-center mt-6">
+      {selects.map((select) => (
+        <select
+          key={select.name}
+          name={select.name}
+          value={dataPhoneRef[select.name]}
           onChange={onChange}
-          ref={inputRef}
-          name="img"
-          className="my-4"
-          value={dataPhoneRef.img}
-        />
-        <button
-          onClick={handleSubmit}
-          type="button"
-          className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
+          className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
         >
-          Enregistrer
-        </button>
-      </div>
+          <option value="">{select.label}</option>
+          {select.options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.label}
+            </option>
+          ))}
+        </select>
+      ))}
+      <input
+        type="text"
+        name="model"
+        value={dataPhoneRef.model}
+        onChange={onChange}
+        className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+        placeholder="Modèle"
+      />
+
+      <input
+        type="text"
+        onChange={onChange}
+        name="price"
+        value={dataPhoneRef.price}
+        className="w-80 my-2 rounded-md placeholder:text-gray-300 border border-primary py-2 pl-4 text-lg placeholder-black"
+        placeholder="Prix"
+      />
+      <input
+        type="file"
+        onChange={onChange}
+        ref={inputRef}
+        name="img"
+        value={dataPhoneRef.img}
+      />
+      <button
+        onClick={handleSubmit}
+        type="button"
+        className="bg-black text-white p-3 rounded-lg"
+      >
+        Enregistrer
+      </button>
     </div>
   );
 }
