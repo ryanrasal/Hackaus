@@ -1,3 +1,4 @@
+import ManageRef from "@components/ManageRef";
 import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";
@@ -53,6 +54,10 @@ const Routes = [
       {
         path: "ModaleSignature",
         element: <ModaleSignature />,
+      },
+      {
+        path: "manageRef",
+        element: <ManageRef />,
       },
     ],
   },
