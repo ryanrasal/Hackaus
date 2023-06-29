@@ -108,8 +108,10 @@ function Compare() {
   ];
   return (
     <div>
-      <PhoneCard phone={selectedPhone} />
-      <div>
+      <div className="w-auto">
+        <PhoneCard phone={selectedPhone} />
+      </div>
+      <div className="flex flex-col items-center">
         <input
           type="text"
           name="Marque"
@@ -142,13 +144,14 @@ function Compare() {
             ))}
           </select>
         ))}
-
+      </div>
+      <div className="flex justify-center mt-3">
         <button
           onClick={handleClick}
           type="button"
-          className="bg-black md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
+          className="bg-[#002743] md:w-[20vw] md:mx-auto hover:bg-red-600 hover:text-white text-white p-3 rounded-lg"
         >
-          Valider
+          Analyser
         </button>
       </div>
     </div>
