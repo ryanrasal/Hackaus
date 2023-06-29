@@ -10,15 +10,6 @@ export default function AdminFormUser() {
     email: "",
     password: "",
   });
-  const testToaster = () => {
-    toast.success("Toast Test Successful!", {
-      position: "top-right",
-      autoClose: 5000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-    });
-  };
 
   const navigate = useNavigate();
 
@@ -63,7 +54,7 @@ export default function AdminFormUser() {
           }
         })
         .then(() => {
-          toast.success("Utilisateur Créer", {
+          toast.success(`Utilisateur ${dataUser.firstname} créé ! `, {
             position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
@@ -111,9 +102,6 @@ export default function AdminFormUser() {
           Ajouter
         </button>
       </form>
-      <button type="button" onClick={testToaster}>
-        TOAST MOI
-      </button>
     </div>
   );
 }
