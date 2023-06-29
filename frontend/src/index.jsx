@@ -1,3 +1,4 @@
+import ChooseFormPhone from "./pages/ChooseFormPhone";
 import LoginPage from "./pages/LoginPage";
 import App from "./App";
 import Home from "./pages/Home";
@@ -33,6 +34,10 @@ const Routes = [
       {
         path: "create-user",
         element: <AdminFormUser />,
+      },
+      {
+        path: "ChooseFormPhone",
+        element: <ChooseFormPhone />,
       },
       {
         path: "addPhone",
