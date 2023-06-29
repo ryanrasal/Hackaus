@@ -1,13 +1,20 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import PhoneCard from "@components/PhoneCard";
+import { useNavigate } from "react-router-dom";
+import PhoneCard from "../components/PhoneCard";
 import circle from "../assets/home/circle.svg";
 import phoneDoctor from "../assets/home/phoneDoctor.png";
 
 export default function Home() {
   const [phoneRef, setPhoneRef] = useState([]);
   const [search, setSearch] = useState("");
+  const navigate = useNavigate();
 
+  const filterRef = phoneRef.filter(
+    (item) =>
+      item.model.toLowerCase().includes(search.toLowerCase()) ||
+      item.brand.toLowerCase().includes(search.toLowerCase())
+  );
   useEffect(() => {
     axios
       .get("http://localhost:5000/phone-ref")
@@ -19,12 +26,10 @@ export default function Home() {
       });
   }, []);
 
-  const filterRef = phoneRef.filter(
-    (item) =>
-      item.model.toLowerCase().includes(search.toLowerCase()) ||
-      item.brand.toLowerCase().includes(search.toLowerCase())
-  );
-
+  const handleClick = (phone) => {
+    localStorage.setItem("selectedPhone", JSON.stringify(phone));
+    navigate("/compare");
+  };
   return (
     <div>
       <div className="text-3xl tracking-wider font-bold flex flex-col items-center justify-center h-[20vh]">
@@ -61,7 +66,9 @@ export default function Home() {
         </div>
       </div>
       {search !== "" ? (
-        filterRef.map((phone) => <PhoneCard phone={phone} />)
+        filterRef.map((phone) => (
+          <PhoneCard phone={phone} handleClick={handleClick} />
+        ))
       ) : (
         <div className="relative w-full h-[60vh]">
           <img
